@@ -117,6 +117,38 @@
 		@apply border-border outline-ring/50;
 	}
 	body {
-		@apply bg-background text-foreground;
+		@apply bg-background text-foreground antialiased;
+	}
+	
+	/* Improve scrollbar styling */
+	::-webkit-scrollbar {
+		@apply w-2 h-2;
+	}
+	
+	::-webkit-scrollbar-track {
+		@apply bg-muted/30;
+	}
+	
+	::-webkit-scrollbar-thumb {
+		@apply bg-muted-foreground/30 rounded-full;
+	}
+	
+	::-webkit-scrollbar-thumb:hover {
+		@apply bg-muted-foreground/50;
+	}
+
+	/* Improved focus styles */
+	.focus-visible {
+		@apply ring-2 ring-primary ring-offset-2 ring-offset-background outline-none;
+	}
+
+	/* Better button hover states */
+	.button-hover {
+		@apply hover:scale-[1.02] active:scale-[0.98] transition-transform duration-150;
+	}
+
+	/* Improved card shadows */
+	.card-elevated {
+		@apply shadow-sm hover:shadow-md transition-shadow duration-200;
 	}
 }
