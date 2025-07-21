@@ -12,23 +12,18 @@ export default function DashboardLayout({
 	const [mobileOpen, setMobileOpen] = useState(false);
 
 	return (
-		<div className="relative flex h-screen overflow-hidden">
-			{/* Desktop Sidebar */}
-			<div className="hidden lg:flex">
-				<Sidebar />
-			</div>
-
-			{/* Mobile Sidebar */}
-			<Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
-				<SheetContent side="left" className="p-0 w-64 lg:hidden">
-					<Sidebar onMobileClose={() => setMobileOpen(false)} />
-				</SheetContent>
-			</Sheet>
+		<div className="relative flex h-screen overflow-hidden bg-background">
+			{/* Sidebar */}
+			<Sidebar />
 
 			{/* Main Content */}
 			<div className="flex-1 overflow-auto">
-				<Topbar onMobileMenuClick={() => setMobileOpen(true)} />
-				<main className="p-4 sm:p-6">{children}</main>
+				<Topbar />
+				<main className="p-8 max-w-[calc(100vw-18rem)] mx-auto">
+					<div className="min-h-[calc(100vh-8rem)]">
+						{children}
+					</div>
+				</main>
 			</div>
 		</div>
 	);

@@ -20,32 +20,21 @@ interface TopbarProps {
 
 export function Topbar({ onMobileMenuClick }: TopbarProps) {
 	return (
-		<div className="flex h-14 items-center justify-between border-b px-4 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-			{/* Mobile menu button */}
-			<Button
-				variant="ghost"
-				size="icon"
-				className="lg:hidden"
-				onClick={onMobileMenuClick}
-				aria-label="Open menu"
-			>
-				<Menu className="h-5 w-5" />
-			</Button>
-
+		<div className="flex h-16 items-center justify-between border-b px-6 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
 			{/* Search */}
-			<div className="flex items-center max-w-xl flex-1">
-				<div className="relative w-full max-w-sm">
-					<Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
+			<div className="flex items-center max-w-2xl flex-1">
+				<div className="relative w-full max-w-lg">
+					<Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
 					<Input
 						type="search"
-						placeholder="Search..."
-						className="pl-8 pr-4 bg-muted/50 border-none focus:bg-background focus:ring-2 focus:ring-ring transition-all"
+						placeholder="Search anything..."
+						className="pl-10 pr-4 py-2 h-10 bg-muted/50 border-0 focus:bg-background focus:ring-2 focus:ring-primary/20 transition-all duration-200"
 					/>
 				</div>
 			</div>
 
 			{/* Right Section */}
-			<div className="flex items-center gap-4">
+			<div className="flex items-center gap-3">
 				{/* App Switcher */}
 				<AppSwitcher />
 
@@ -53,92 +42,68 @@ export function Topbar({ onMobileMenuClick }: TopbarProps) {
 				<ThemeToggle />
 
 				{/* Notifications */}
-				<DropdownMenu>
-					<DropdownMenuTrigger asChild>
-						<Button
-							variant="ghost"
-							size="icon"
-							className="relative hover:bg-accent"
-							aria-label="Notifications"
-						>
-							<Bell className="h-5 w-5" />
-							<span className="absolute top-0 right-0 h-2 w-2 rounded-full bg-red-600 animate-pulse" />
-						</Button>
-					</DropdownMenuTrigger>
-					<DropdownMenuContent className="w-80" align="end" forceMount>
-						<DropdownMenuLabel>Notifications</DropdownMenuLabel>
-						<DropdownMenuSeparator />
-						<div className="space-y-2 p-2">
-							<div className="flex items-start gap-3 p-2 rounded-lg hover:bg-accent transition-colors cursor-pointer">
-								<div className="w-2 h-2 rounded-full bg-blue-500 mt-2"></div>
-								<div className="flex-1">
-									<p className="text-sm font-medium">New user registered</p>
-									<p className="text-xs text-muted-foreground">John Doe joined your team</p>
-									<p className="text-xs text-muted-foreground">2 minutes ago</p>
-								</div>
-							</div>
-							<div className="flex items-start gap-3 p-2 rounded-lg hover:bg-accent transition-colors cursor-pointer">
-								<div className="w-2 h-2 rounded-full bg-green-500 mt-2"></div>
-								<div className="flex-1">
-									<p className="text-sm font-medium">Project completed</p>
-									<p className="text-xs text-muted-foreground">Website redesign finished</p>
-									<p className="text-xs text-muted-foreground">5 minutes ago</p>
-								</div>
-							</div>
-							<div className="flex items-start gap-3 p-2 rounded-lg hover:bg-accent transition-colors cursor-pointer">
-								<div className="w-2 h-2 rounded-full bg-orange-500 mt-2"></div>
-								<div className="flex-1">
-									<p className="text-sm font-medium">Security alert</p>
-									<p className="text-xs text-muted-foreground">New login from unknown device</p>
-									<p className="text-xs text-muted-foreground">1 hour ago</p>
-								</div>
-							</div>
-						</div>
-						<DropdownMenuSeparator />
-						<div className="p-2">
-							<Button variant="ghost" className="w-full text-sm">
-								View all notifications
-							</Button>
-						</div>
-					</DropdownMenuContent>
-				</DropdownMenu>
+				<Button
+					variant="ghost"
+					size="icon"
+					className="relative h-9 w-9 hover:bg-muted transition-colors"
+					aria-label="Notifications"
+				>
+					<Bell className="h-4 w-4" />
+					<span className="absolute -top-1 -right-1 h-5 w-5 rounded-full bg-red-500 text-white text-xs flex items-center justify-center font-medium">
+						3
+					</span>
+				</Button>
 
 				{/* Profile */}
 				<DropdownMenu>
 					<DropdownMenuTrigger asChild>
-						<Button variant="ghost" className="relative h-8 w-8 rounded-full">
-							<Avatar className="h-8 w-8 ring-2 ring-offset-2 ring-offset-background hover:ring-ring transition-all">
+						<Button variant="ghost" className="relative h-9 w-9 rounded-full hover:bg-muted transition-colors">
+							<Avatar className="h-8 w-8 ring-2 ring-background">
 								<AvatarImage src="/avatar.png" alt="User" />
-								<AvatarFallback className="bg-gradient-to-r from-purple-500 to-pink-500 text-white">JD</AvatarFallback>
+								<AvatarFallback className="bg-primary text-primary-foreground font-semibold">
+									UN
+								</AvatarFallback>
 							</Avatar>
 						</Button>
 					</DropdownMenuTrigger>
-					<DropdownMenuContent className="w-56" align="end" forceMount>
-						<DropdownMenuLabel className="font-normal">
-							<div className="flex flex-col space-y-1">
-								<p className="text-sm font-medium leading-none">John Doe</p>
-								<p className="text-xs leading-none text-muted-foreground">
-									john.doe@example.com
-								</p>
+					<DropdownMenuContent className="w-64 p-2" align="end" forceMount>
+						<DropdownMenuLabel className="font-normal p-3">
+							<div className="flex items-center gap-3">
+								<Avatar className="h-10 w-10">
+									<AvatarImage src="/avatar.png" alt="User" />
+									<AvatarFallback className="bg-primary text-primary-foreground">
+										UN
+									</AvatarFallback>
+								</Avatar>
+								<div className="flex flex-col space-y-1">
+									<p className="text-sm font-medium leading-none">John Doe</p>
+									<p className="text-xs leading-none text-muted-foreground">
+										john.doe@example.com
+									</p>
+								</div>
 							</div>
 						</DropdownMenuLabel>
-						<DropdownMenuSeparator />
-						<DropdownMenuItem className="cursor-pointer">
-							<Users className="mr-2 h-4 w-4" />
-							Profile
+						<DropdownMenuSeparator className="my-2" />
+						<DropdownMenuItem className="p-3 cursor-pointer hover:bg-muted rounded-md transition-colors">
+							<span className="flex items-center gap-2">
+								👤 Profile
+							</span>
 						</DropdownMenuItem>
-						<DropdownMenuItem className="cursor-pointer">
-							<Settings className="mr-2 h-4 w-4" />
-							Settings
+						<DropdownMenuItem className="p-3 cursor-pointer hover:bg-muted rounded-md transition-colors">
+							<span className="flex items-center gap-2">
+								⚙️ Settings
+							</span>
 						</DropdownMenuItem>
-						<DropdownMenuItem className="cursor-pointer">
-							<HelpCircle className="mr-2 h-4 w-4" />
-							Help & Support
+						<DropdownMenuItem className="p-3 cursor-pointer hover:bg-muted rounded-md transition-colors">
+							<span className="flex items-center gap-2">
+								💳 Billing
+							</span>
 						</DropdownMenuItem>
-						<DropdownMenuSeparator />
-						<DropdownMenuItem className="text-red-600 cursor-pointer">
-							<LogIn className="mr-2 h-4 w-4" />
-							Log out
+						<DropdownMenuSeparator className="my-2" />
+						<DropdownMenuItem className="p-3 cursor-pointer text-red-600 hover:bg-red-50 hover:text-red-700 rounded-md transition-colors">
+							<span className="flex items-center gap-2">
+								🚪 Log out
+							</span>
 						</DropdownMenuItem>
 					</DropdownMenuContent>
 				</DropdownMenu>
