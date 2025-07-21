@@ -119,20 +119,20 @@
 	body {
 		@apply bg-background text-foreground antialiased;
 	}
-	
+
 	/* Improve scrollbar styling */
 	::-webkit-scrollbar {
 		@apply w-2 h-2;
 	}
-	
+
 	::-webkit-scrollbar-track {
 		@apply bg-muted/30;
 	}
-	
+
 	::-webkit-scrollbar-thumb {
 		@apply bg-muted-foreground/30 rounded-full;
 	}
-	
+
 	::-webkit-scrollbar-thumb:hover {
 		@apply bg-muted-foreground/50;
 	}

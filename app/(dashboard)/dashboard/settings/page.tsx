@@ -51,7 +51,7 @@ const profileFormSchema = z.object({
 		.array(
 			z.object({
 				value: z.string().url({ message: "Please enter a valid URL." }),
-			})
+			}),
 		)
 		.optional(),
 });
@@ -116,8 +116,8 @@ export default function SettingsPage() {
 										<Input placeholder="username" {...field} />
 									</FormControl>
 									<FormDescription>
-										This is your public display name. It can be your real name or a
-										pseudonym.
+										This is your public display name. It can be your real name
+										or a pseudonym.
 									</FormDescription>
 									<FormMessage />
 								</FormItem>
@@ -133,8 +133,8 @@ export default function SettingsPage() {
 										<Input placeholder="John Doe" {...field} />
 									</FormControl>
 									<FormDescription>
-										This is your public display name. It can be your real name or a
-										pseudonym.
+										This is your public display name. It can be your real name
+										or a pseudonym.
 									</FormDescription>
 									<FormMessage />
 								</FormItem>
@@ -152,7 +152,10 @@ export default function SettingsPage() {
 								</FormControl>
 								<FormDescription>
 									You can manage verified email addresses in your{" "}
-									<a href="#" className="underline underline-offset-4">
+									<a
+										href="/dashboard/settings/email"
+										className="underline underline-offset-4"
+									>
 										email settings
 									</a>
 									.

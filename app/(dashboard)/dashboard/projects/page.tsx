@@ -1,5 +1,11 @@
 "use client";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+	Card,
+	CardContent,
+	CardDescription,
+	CardHeader,
+	CardTitle,
+} from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
@@ -105,7 +111,7 @@ export default function ProjectsPage() {
 								<span className="text-sm font-medium">{project.progress}%</span>
 							</div>
 							<Progress value={project.progress} className="h-2" />
-							
+
 							<div className="flex items-center justify-between">
 								<Badge
 									variant={
@@ -134,7 +140,9 @@ export default function ProjectsPage() {
 							<div className="flex items-center justify-between text-sm text-muted-foreground">
 								<div className="flex items-center gap-1">
 									<Calendar className="h-4 w-4" />
-									<span>Due {new Date(project.dueDate).toLocaleDateString()}</span>
+									<span>
+										Due {new Date(project.dueDate).toLocaleDateString()}
+									</span>
 								</div>
 								<div className="flex items-center gap-1">
 									<Users className="h-4 w-4" />
@@ -144,8 +152,11 @@ export default function ProjectsPage() {
 
 							<div className="flex items-center gap-2">
 								<div className="flex -space-x-2">
-									{project.team.map((member, index) => (
-										<Avatar key={index} className="h-8 w-8 border-2 border-background">
+									{project.team.map((member) => (
+										<Avatar
+											key={member}
+											className="h-8 w-8 border-2 border-background"
+										>
 											<AvatarFallback className="text-xs bg-blue-100 text-blue-600">
 												{member}
 											</AvatarFallback>

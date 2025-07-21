@@ -12,8 +12,13 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { AppSwitcher } from "./app-switcher";
+import { ThemeToggle } from "@/components/theme-toggle";
 
-export function Topbar() {
+interface TopbarProps {
+	onMobileMenuClick?: () => void;
+}
+
+export function Topbar({ onMobileMenuClick }: TopbarProps) {
 	return (
 		<div className="flex h-16 items-center justify-between border-b px-6 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
 			{/* Search */}
@@ -33,6 +38,9 @@ export function Topbar() {
 				{/* App Switcher */}
 				<AppSwitcher />
 
+				{/* Theme Toggle */}
+				<ThemeToggle />
+
 				{/* Notifications */}
 				<Button
 					variant="ghost"
@@ -49,7 +57,10 @@ export function Topbar() {
 				{/* Profile */}
 				<DropdownMenu>
 					<DropdownMenuTrigger asChild>
-						<Button variant="ghost" className="relative h-9 w-9 rounded-full hover:bg-muted transition-colors">
+						<Button
+							variant="ghost"
+							className="relative h-9 w-9 rounded-full hover:bg-muted transition-colors"
+						>
 							<Avatar className="h-8 w-8 ring-2 ring-background">
 								<AvatarImage src="/avatar.png" alt="User" />
 								<AvatarFallback className="bg-primary text-primary-foreground font-semibold">
@@ -77,25 +88,17 @@ export function Topbar() {
 						</DropdownMenuLabel>
 						<DropdownMenuSeparator className="my-2" />
 						<DropdownMenuItem className="p-3 cursor-pointer hover:bg-muted rounded-md transition-colors">
-							<span className="flex items-center gap-2">
-								👤 Profile
-							</span>
+							<span className="flex items-center gap-2">👤 Profile</span>
 						</DropdownMenuItem>
 						<DropdownMenuItem className="p-3 cursor-pointer hover:bg-muted rounded-md transition-colors">
-							<span className="flex items-center gap-2">
-								⚙️ Settings
-							</span>
+							<span className="flex items-center gap-2">⚙️ Settings</span>
 						</DropdownMenuItem>
 						<DropdownMenuItem className="p-3 cursor-pointer hover:bg-muted rounded-md transition-colors">
-							<span className="flex items-center gap-2">
-								💳 Billing
-							</span>
+							<span className="flex items-center gap-2">💳 Billing</span>
 						</DropdownMenuItem>
 						<DropdownMenuSeparator className="my-2" />
 						<DropdownMenuItem className="p-3 cursor-pointer text-red-600 hover:bg-red-50 hover:text-red-700 rounded-md transition-colors">
-							<span className="flex items-center gap-2">
-								🚪 Log out
-							</span>
+							<span className="flex items-center gap-2">🚪 Log out</span>
 						</DropdownMenuItem>
 					</DropdownMenuContent>
 				</DropdownMenu>

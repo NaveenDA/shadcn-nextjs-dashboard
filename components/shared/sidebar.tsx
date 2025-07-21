@@ -30,16 +30,19 @@ const sidebarGroups = [
 				title: "Dashboard",
 				href: "/dashboard",
 				icon: LayoutDashboard,
+				badge: null,
 			},
 			{
 				title: "Analytics",
 				href: "/dashboard/analytics",
 				icon: BarChart3,
+				badge: "New",
 			},
 			{
 				title: "Settings",
 				href: "/dashboard/settings",
 				icon: Settings,
+				badge: null,
 			},
 		],
 	},
@@ -50,31 +53,37 @@ const sidebarGroups = [
 				title: "Users",
 				href: "/dashboard/users",
 				icon: Users,
+				badge: "12",
 			},
 			{
 				title: "Projects",
 				href: "/dashboard/projects",
 				icon: FolderKanban,
+				badge: null,
 			},
 			{
 				title: "Documents",
 				href: "/dashboard/documents",
 				icon: FileText,
+				badge: null,
 			},
 			{
 				title: "Calendar",
 				href: "/dashboard/calendar",
 				icon: Calendar,
+				badge: "3",
 			},
 			{
 				title: "Auth Pages",
 				href: "/dashboard/auth",
 				icon: LogIn,
+				badge: null,
 			},
 			{
 				title: "Error Pages",
 				href: "/dashboard/errors",
 				icon: AlertCircle,
+				badge: null,
 			},
 		],
 	},
@@ -85,29 +94,43 @@ const sidebarGroups = [
 				title: "Messages",
 				href: "/dashboard/messages",
 				icon: MessageSquare,
+				badge: "5",
 			},
 			{
 				title: "Database",
 				href: "/dashboard/database",
 				icon: Database,
+				badge: null,
 			},
 			{
 				title: "Security",
 				href: "/dashboard/security",
 				icon: Shield,
+				badge: "!",
 			},
 			{
 				title: "Help",
 				href: "/dashboard/help",
 				icon: HelpCircle,
+				badge: null,
 			},
 		],
 	},
 ];
 
-export function Sidebar() {
+interface SidebarProps {
+	onMobileClose?: () => void;
+}
+
+export function Sidebar({ onMobileClose }: SidebarProps) {
 	const pathname = usePathname();
 	const [isCollapsed, setIsCollapsed] = useState(false);
+
+	const handleLinkClick = () => {
+		if (onMobileClose) {
+			onMobileClose();
+		}
+	};
 
 	return (
 		<div
@@ -123,7 +146,9 @@ export function Sidebar() {
 						<div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
 							<LayoutDashboard className="w-4 h-4 text-primary-foreground" />
 						</div>
-						<span className="text-xl font-bold group-hover:text-primary transition-colors">Dashboard</span>
+						<span className="text-xl font-bold group-hover:text-primary transition-colors">
+							Dashboard
+						</span>
 					</Link>
 				)}
 				{isCollapsed && (
@@ -166,10 +191,11 @@ export function Sidebar() {
 									<Link
 										key={item.href}
 										href={item.href}
+										onClick={handleLinkClick}
 										className={cn(
 											"group flex items-center gap-3 rounded-xl px-3 py-3 text-sm font-medium transition-all duration-200 hover:bg-muted",
-											isActive 
-												? "bg-primary text-primary-foreground shadow-md hover:bg-primary/90" 
+											isActive
+												? "bg-primary text-primary-foreground shadow-md hover:bg-primary/90"
 												: "text-muted-foreground hover:text-foreground",
 											isCollapsed && "justify-center px-3 py-4",
 										)}
