@@ -1,14 +1,7 @@
 "use client";
 import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import {
-	LogIn,
-	UserPlus,
-	Lock,
-	Mail,
-	Shield,
-	Key,
-} from "lucide-react";
+import { LogIn, UserPlus, Lock, Mail, Shield, Key } from "lucide-react";
 import Link from "next/link";
 
 const authPages = [
@@ -35,7 +28,8 @@ const authPages = [
 	},
 	{
 		title: "Email Verification",
-		description: "A page to inform users to check their email for a verification link.",
+		description:
+			"A page to inform users to check their email for a verification link.",
 		icon: Mail,
 		href: "/verify-email",
 		status: "Ready",
@@ -62,7 +56,8 @@ export default function AuthPage() {
 			<div className="text-center">
 				<h1 className="text-3xl font-bold">Authentication Pages</h1>
 				<p className="text-muted-foreground">
-					Here are the authentication-related pages. These now live in their own full-screen layout.
+					Here are the authentication-related pages. These now live in their own
+					full-screen layout.
 				</p>
 			</div>
 			<div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
@@ -78,7 +73,9 @@ export default function AuthPage() {
 										{page.status}
 									</Badge>
 								</div>
-								<p className="text-sm text-muted-foreground">{page.description}</p>
+								<p className="text-sm text-muted-foreground">
+									{page.description}
+								</p>
 							</CardHeader>
 						</Card>
 					</Link>

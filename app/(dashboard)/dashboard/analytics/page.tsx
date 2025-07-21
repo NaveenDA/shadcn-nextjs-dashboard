@@ -78,7 +78,8 @@ export default function AnalyticsPage() {
 				<div>
 					<h2 className="text-3xl font-bold tracking-tight">Analytics</h2>
 					<p className="text-muted-foreground">
-						View detailed analytics and insights about your business performance.
+						View detailed analytics and insights about your business
+						performance.
 					</p>
 				</div>
 				<div className="flex items-center gap-2">
@@ -104,7 +105,10 @@ export default function AnalyticsPage() {
 					const TrendIcon = metric.trend === "up" ? TrendingUp : TrendingDown;
 
 					return (
-						<Card key={metric.title} className="hover:shadow-md transition-shadow">
+						<Card
+							key={metric.title}
+							className="hover:shadow-md transition-shadow"
+						>
 							<CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
 								<CardTitle className="text-sm font-medium">
 									{metric.title}
@@ -122,10 +126,16 @@ export default function AnalyticsPage() {
 											metric.trend === "up" ? "text-green-600" : "text-red-600",
 										)}
 									/>
-									<span className={metric.trend === "up" ? "text-green-600" : "text-red-600"}>
+									<span
+										className={
+											metric.trend === "up" ? "text-green-600" : "text-red-600"
+										}
+									>
 										{metric.change}
 									</span>
-									<span className="text-muted-foreground ml-1">from last month</span>
+									<span className="text-muted-foreground ml-1">
+										from last month
+									</span>
 								</div>
 							</CardContent>
 						</Card>
@@ -157,8 +167,12 @@ export default function AnalyticsPage() {
 									<div className="h-[300px] flex items-center justify-center bg-gradient-to-br from-blue-50 to-purple-50 rounded-lg border-2 border-dashed border-gray-200">
 										<div className="text-center">
 											<BarChart3 className="h-12 w-12 text-gray-400 mx-auto mb-2" />
-											<p className="text-sm font-medium text-muted-foreground">Chart Integration Ready</p>
-											<p className="text-xs text-muted-foreground">Connect your analytics provider</p>
+											<p className="text-sm font-medium text-muted-foreground">
+												Chart Integration Ready
+											</p>
+											<p className="text-xs text-muted-foreground">
+												Connect your analytics provider
+											</p>
 										</div>
 									</div>
 								</CardContent>
@@ -179,8 +193,12 @@ export default function AnalyticsPage() {
 									<div className="h-[300px] flex items-center justify-center bg-gradient-to-br from-emerald-50 to-blue-50 rounded-lg border-2 border-dashed border-gray-200">
 										<div className="text-center">
 											<DollarSign className="h-12 w-12 text-gray-400 mx-auto mb-2" />
-											<p className="text-sm font-medium text-muted-foreground">Revenue Analytics</p>
-											<p className="text-xs text-muted-foreground">Integrate with your billing system</p>
+											<p className="text-sm font-medium text-muted-foreground">
+												Revenue Analytics
+											</p>
+											<p className="text-xs text-muted-foreground">
+												Integrate with your billing system
+											</p>
 										</div>
 									</div>
 								</CardContent>
@@ -201,8 +219,12 @@ export default function AnalyticsPage() {
 									<div className="h-[300px] flex items-center justify-center bg-gradient-to-br from-purple-50 to-pink-50 rounded-lg border-2 border-dashed border-gray-200">
 										<div className="text-center">
 											<Users className="h-12 w-12 text-gray-400 mx-auto mb-2" />
-											<p className="text-sm font-medium text-muted-foreground">User Behavior Analytics</p>
-											<p className="text-xs text-muted-foreground">Connect user tracking service</p>
+											<p className="text-sm font-medium text-muted-foreground">
+												User Behavior Analytics
+											</p>
+											<p className="text-xs text-muted-foreground">
+												Connect user tracking service
+											</p>
 										</div>
 									</div>
 								</CardContent>
@@ -225,7 +247,9 @@ export default function AnalyticsPage() {
 								<div key={source.name} className="space-y-2">
 									<div className="flex items-center justify-between text-sm">
 										<span className="font-medium">{source.name}</span>
-										<span className="text-muted-foreground">{source.count}</span>
+										<span className="text-muted-foreground">
+											{source.count}
+										</span>
 									</div>
 									<Progress value={source.value} className="h-2" />
 									<div className="text-right text-xs text-muted-foreground">
@@ -244,7 +268,10 @@ export default function AnalyticsPage() {
 						<CardContent>
 							<div className="space-y-3">
 								{topPages.map((page) => (
-									<div key={page.page} className="flex items-center justify-between p-3 rounded-lg bg-muted/50 hover:bg-muted transition-colors">
+									<div
+										key={page.page}
+										className="flex items-center justify-between p-3 rounded-lg bg-muted/50 hover:bg-muted transition-colors"
+									>
 										<div className="flex-1">
 											<p className="text-sm font-medium">{page.page}</p>
 											<div className="flex items-center gap-4 text-xs text-muted-foreground mt-1">

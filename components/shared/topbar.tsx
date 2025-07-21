@@ -1,5 +1,5 @@
 "use client";
-import { Bell, Search, Users, Settings, HelpCircle, LogIn, Menu } from "lucide-react";
+import { Bell, Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import {
@@ -57,7 +57,10 @@ export function Topbar({ onMobileMenuClick }: TopbarProps) {
 				{/* Profile */}
 				<DropdownMenu>
 					<DropdownMenuTrigger asChild>
-						<Button variant="ghost" className="relative h-9 w-9 rounded-full hover:bg-muted transition-colors">
+						<Button
+							variant="ghost"
+							className="relative h-9 w-9 rounded-full hover:bg-muted transition-colors"
+						>
 							<Avatar className="h-8 w-8 ring-2 ring-background">
 								<AvatarImage src="/avatar.png" alt="User" />
 								<AvatarFallback className="bg-primary text-primary-foreground font-semibold">
@@ -85,25 +88,17 @@ export function Topbar({ onMobileMenuClick }: TopbarProps) {
 						</DropdownMenuLabel>
 						<DropdownMenuSeparator className="my-2" />
 						<DropdownMenuItem className="p-3 cursor-pointer hover:bg-muted rounded-md transition-colors">
-							<span className="flex items-center gap-2">
-								👤 Profile
-							</span>
+							<span className="flex items-center gap-2">👤 Profile</span>
 						</DropdownMenuItem>
 						<DropdownMenuItem className="p-3 cursor-pointer hover:bg-muted rounded-md transition-colors">
-							<span className="flex items-center gap-2">
-								⚙️ Settings
-							</span>
+							<span className="flex items-center gap-2">⚙️ Settings</span>
 						</DropdownMenuItem>
 						<DropdownMenuItem className="p-3 cursor-pointer hover:bg-muted rounded-md transition-colors">
-							<span className="flex items-center gap-2">
-								💳 Billing
-							</span>
+							<span className="flex items-center gap-2">💳 Billing</span>
 						</DropdownMenuItem>
 						<DropdownMenuSeparator className="my-2" />
 						<DropdownMenuItem className="p-3 cursor-pointer text-red-600 hover:bg-red-50 hover:text-red-700 rounded-md transition-colors">
-							<span className="flex items-center gap-2">
-								🚪 Log out
-							</span>
+							<span className="flex items-center gap-2">🚪 Log out</span>
 						</DropdownMenuItem>
 					</DropdownMenuContent>
 				</DropdownMenu>

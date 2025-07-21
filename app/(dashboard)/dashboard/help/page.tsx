@@ -124,8 +124,9 @@ export default function HelpPage() {
 					<CardContent>
 						<div className="space-y-4">
 							{faqs.map((faq, index) => (
-								<div key={index} className="border rounded-lg">
+								<div key={faq.question} className="border rounded-lg">
 									<button
+										type="button"
 										className="w-full p-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"
 										onClick={() =>
 											setExpandedFaq(expandedFaq === index ? null : index)

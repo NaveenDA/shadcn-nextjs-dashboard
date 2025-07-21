@@ -19,10 +19,8 @@ import {
 	HelpCircle,
 	LogIn,
 	AlertCircle,
-	Sparkles,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 
 const sidebarGroups = [
 	{
@@ -148,7 +146,9 @@ export function Sidebar({ onMobileClose }: SidebarProps) {
 						<div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
 							<LayoutDashboard className="w-4 h-4 text-primary-foreground" />
 						</div>
-						<span className="text-xl font-bold group-hover:text-primary transition-colors">Dashboard</span>
+						<span className="text-xl font-bold group-hover:text-primary transition-colors">
+							Dashboard
+						</span>
 					</Link>
 				)}
 				{isCollapsed && (
@@ -194,8 +194,8 @@ export function Sidebar({ onMobileClose }: SidebarProps) {
 										onClick={handleLinkClick}
 										className={cn(
 											"group flex items-center gap-3 rounded-xl px-3 py-3 text-sm font-medium transition-all duration-200 hover:bg-muted",
-											isActive 
-												? "bg-primary text-primary-foreground shadow-md hover:bg-primary/90" 
+											isActive
+												? "bg-primary text-primary-foreground shadow-md hover:bg-primary/90"
 												: "text-muted-foreground hover:text-foreground",
 											isCollapsed && "justify-center px-3 py-4",
 										)}

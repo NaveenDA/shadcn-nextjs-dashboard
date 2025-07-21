@@ -1,18 +1,12 @@
 "use client";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Progress } from "@/components/ui/progress";
-import { Badge } from "@/components/ui/badge";
-import { 
-	Activity, 
-	CreditCard, 
-	DollarSign, 
-	Users, 
-	TrendingUp, 
+import {
+	Activity,
+	CreditCard,
+	DollarSign,
+	Users,
+	TrendingUp,
 	TrendingDown,
-	BarChart3,
-	PieChart,
-	Calendar,
-	Clock
 } from "lucide-react";
 
 const stats = [
@@ -55,17 +49,57 @@ const stats = [
 ];
 
 const recentActivities = [
-	{ id: 1, user: "John Doe", action: "Created new project", time: "2 minutes ago" },
-	{ id: 2, user: "Jane Smith", action: "Updated dashboard settings", time: "5 minutes ago" },
-	{ id: 3, user: "Mike Johnson", action: "Uploaded 3 documents", time: "10 minutes ago" },
-	{ id: 4, user: "Sarah Wilson", action: "Joined team meeting", time: "15 minutes ago" },
+	{
+		id: 1,
+		user: "John Doe",
+		action: "Created new project",
+		time: "2 minutes ago",
+	},
+	{
+		id: 2,
+		user: "Jane Smith",
+		action: "Updated dashboard settings",
+		time: "5 minutes ago",
+	},
+	{
+		id: 3,
+		user: "Mike Johnson",
+		action: "Uploaded 3 documents",
+		time: "10 minutes ago",
+	},
+	{
+		id: 4,
+		user: "Sarah Wilson",
+		action: "Joined team meeting",
+		time: "15 minutes ago",
+	},
 ];
 
 const projectProgress = [
-	{ name: "Website Redesign", progress: 75, status: "In Progress", color: "bg-blue-500" },
-	{ name: "Mobile App", progress: 45, status: "Development", color: "bg-orange-500" },
-	{ name: "API Integration", progress: 90, status: "Review", color: "bg-emerald-500" },
-	{ name: "Database Migration", progress: 30, status: "Planning", color: "bg-purple-500" },
+	{
+		name: "Website Redesign",
+		progress: 75,
+		status: "In Progress",
+		color: "bg-blue-500",
+	},
+	{
+		name: "Mobile App",
+		progress: 45,
+		status: "Development",
+		color: "bg-orange-500",
+	},
+	{
+		name: "API Integration",
+		progress: 90,
+		status: "Review",
+		color: "bg-emerald-500",
+	},
+	{
+		name: "Database Migration",
+		progress: 30,
+		status: "Planning",
+		color: "bg-purple-500",
+	},
 ];
 
 export default function DashboardPage() {
@@ -86,7 +120,10 @@ export default function DashboardPage() {
 					const TrendIcon = stat.trend === "up" ? TrendingUp : TrendingDown;
 
 					return (
-						<Card key={stat.title} className="group hover:shadow-lg transition-all duration-200">
+						<Card
+							key={stat.title}
+							className="group hover:shadow-lg transition-all duration-200"
+						>
 							<CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3">
 								<CardTitle className="text-sm font-medium text-muted-foreground">
 									{stat.title}
@@ -99,7 +136,7 @@ export default function DashboardPage() {
 								<div className="text-3xl font-bold mb-2">{stat.value}</div>
 								<p className="text-sm text-muted-foreground leading-relaxed">
 									{stat.description}
-								</div>
+								</p>
 							</CardContent>
 						</Card>
 					);
@@ -111,26 +148,30 @@ export default function DashboardPage() {
 				{/* Recent Activity Card */}
 				<Card>
 					<CardHeader>
-						<CardTitle className="text-xl font-semibold">Recent Activity</CardTitle>
-						<p className="text-muted-foreground">Latest updates from your dashboard</p>
+						<CardTitle className="text-xl font-semibold">
+							Recent Activity
+						</CardTitle>
+						<p className="text-muted-foreground">
+							Latest updates from your dashboard
+						</p>
 					</CardHeader>
 					<CardContent className="space-y-4">
 						<div className="flex items-center gap-4 p-4 rounded-lg border">
-							<div className="w-2 h-2 rounded-full bg-green-500"></div>
+							<div className="w-2 h-2 rounded-full bg-green-500" />
 							<div className="flex-1">
 								<p className="font-medium">New user registered</p>
 								<p className="text-sm text-muted-foreground">2 minutes ago</p>
 							</div>
 						</div>
 						<div className="flex items-center gap-4 p-4 rounded-lg border">
-							<div className="w-2 h-2 rounded-full bg-blue-500"></div>
+							<div className="w-2 h-2 rounded-full bg-blue-500" />
 							<div className="flex-1">
 								<p className="font-medium">Payment processed</p>
 								<p className="text-sm text-muted-foreground">5 minutes ago</p>
 							</div>
 						</div>
 						<div className="flex items-center gap-4 p-4 rounded-lg border">
-							<div className="w-2 h-2 rounded-full bg-orange-500"></div>
+							<div className="w-2 h-2 rounded-full bg-orange-500" />
 							<div className="flex-1">
 								<p className="font-medium">System update completed</p>
 								<p className="text-sm text-muted-foreground">1 hour ago</p>
@@ -142,24 +183,38 @@ export default function DashboardPage() {
 				{/* Quick Actions Card */}
 				<Card>
 					<CardHeader>
-						<CardTitle className="text-xl font-semibold">Quick Actions</CardTitle>
+						<CardTitle className="text-xl font-semibold">
+							Quick Actions
+						</CardTitle>
 						<p className="text-muted-foreground">Commonly used features</p>
 					</CardHeader>
 					<CardContent className="space-y-4">
 						<div className="grid grid-cols-2 gap-4">
-							<button className="flex flex-col items-center justify-center gap-2 p-6 rounded-lg border hover:bg-muted transition-colors">
+							<button
+								type="button"
+								className="flex flex-col items-center justify-center gap-2 p-6 rounded-lg border hover:bg-muted transition-colors"
+							>
 								<Users className="h-6 w-6" />
 								<span className="text-sm font-medium">Add User</span>
 							</button>
-							<button className="flex flex-col items-center justify-center gap-2 p-6 rounded-lg border hover:bg-muted transition-colors">
+							<button
+								type="button"
+								className="flex flex-col items-center justify-center gap-2 p-6 rounded-lg border hover:bg-muted transition-colors"
+							>
 								<CreditCard className="h-6 w-6" />
 								<span className="text-sm font-medium">New Sale</span>
 							</button>
-							<button className="flex flex-col items-center justify-center gap-2 p-6 rounded-lg border hover:bg-muted transition-colors">
+							<button
+								type="button"
+								className="flex flex-col items-center justify-center gap-2 p-6 rounded-lg border hover:bg-muted transition-colors"
+							>
 								<Activity className="h-6 w-6" />
 								<span className="text-sm font-medium">Reports</span>
 							</button>
-							<button className="flex flex-col items-center justify-center gap-2 p-6 rounded-lg border hover:bg-muted transition-colors">
+							<button
+								type="button"
+								className="flex flex-col items-center justify-center gap-2 p-6 rounded-lg border hover:bg-muted transition-colors"
+							>
 								<DollarSign className="h-6 w-6" />
 								<span className="text-sm font-medium">Analytics</span>
 							</button>

@@ -11,7 +11,15 @@ import {
 	DropdownMenuItem,
 	DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { FileText, Folder, Search, MoreHorizontal, Download, Trash2, Share2 } from "lucide-react";
+import {
+	FileText,
+	Folder,
+	Search,
+	MoreHorizontal,
+	Download,
+	Trash2,
+	Share2,
+} from "lucide-react";
 
 const documents = [
 	{
