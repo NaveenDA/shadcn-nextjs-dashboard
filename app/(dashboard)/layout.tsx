@@ -1,5 +1,4 @@
 "use client";
-import { useState } from "react";
 import { Sidebar } from "@/components/shared/sidebar";
 import { Topbar } from "@/components/shared/topbar";
 
@@ -8,7 +7,6 @@ export default function DashboardLayout({
 }: {
 	children: React.ReactNode;
 }) {
-	const [mobileOpen, setMobileOpen] = useState(false);
 
 	return (
 		<div className="relative flex h-screen overflow-hidden bg-background">

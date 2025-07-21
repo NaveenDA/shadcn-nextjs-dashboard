@@ -14,11 +14,9 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { AppSwitcher } from "./app-switcher";
 import { ThemeToggle } from "@/components/theme-toggle";
 
-interface TopbarProps {
-	onMobileMenuClick?: () => void;
-}
 
-export function Topbar({ onMobileMenuClick }: TopbarProps) {
+
+export function Topbar() {
 	return (
 		<div className="flex h-16 items-center justify-between border-b px-6 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
 			{/* Search */}

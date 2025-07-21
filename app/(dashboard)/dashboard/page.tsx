@@ -5,8 +5,6 @@ import {
 	CreditCard,
 	DollarSign,
 	Users,
-	TrendingUp,
-	TrendingDown,
 } from "lucide-react";
 
 const stats = [
@@ -48,59 +46,6 @@ const stats = [
 	},
 ];
 
-const recentActivities = [
-	{
-		id: 1,
-		user: "John Doe",
-		action: "Created new project",
-		time: "2 minutes ago",
-	},
-	{
-		id: 2,
-		user: "Jane Smith",
-		action: "Updated dashboard settings",
-		time: "5 minutes ago",
-	},
-	{
-		id: 3,
-		user: "Mike Johnson",
-		action: "Uploaded 3 documents",
-		time: "10 minutes ago",
-	},
-	{
-		id: 4,
-		user: "Sarah Wilson",
-		action: "Joined team meeting",
-		time: "15 minutes ago",
-	},
-];
-
-const projectProgress = [
-	{
-		name: "Website Redesign",
-		progress: 75,
-		status: "In Progress",
-		color: "bg-blue-500",
-	},
-	{
-		name: "Mobile App",
-		progress: 45,
-		status: "Development",
-		color: "bg-orange-500",
-	},
-	{
-		name: "API Integration",
-		progress: 90,
-		status: "Review",
-		color: "bg-emerald-500",
-	},
-	{
-		name: "Database Migration",
-		progress: 30,
-		status: "Planning",
-		color: "bg-purple-500",
-	},
-];
 
 export default function DashboardPage() {
 	return (
@@ -109,7 +54,7 @@ export default function DashboardPage() {
 			<div className="flex flex-col gap-2">
 				<h1 className="text-4xl font-bold tracking-tight">Dashboard</h1>
 				<p className="text-muted-foreground text-lg">
-					Welcome back! Here's an overview of your data.
+					Welcome back! Here&apos;s an overview of your data.
 				</p>
 			</div>
 
@@ -117,7 +62,6 @@ export default function DashboardPage() {
 			<div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
 				{stats.map((stat) => {
 					const Icon = stat.icon;
-					const TrendIcon = stat.trend === "up" ? TrendingUp : TrendingDown;
 
 					return (
 						<Card
