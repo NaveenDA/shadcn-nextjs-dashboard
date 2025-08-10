@@ -1,5 +1,6 @@
 "use client";
-import { Bell, Search, Users, Settings, HelpCircle, LogIn, Menu } from "lucide-react";
+import { useState } from "react";
+import { Bell, Search, Users, Settings, HelpCircle, LogIn, Menu, Command } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import {
@@ -13,12 +14,15 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { AppSwitcher } from "./app-switcher";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { CommandPalette } from "@/components/command-palette";
 
 interface TopbarProps {
 	onMobileMenuClick?: () => void;
 }
 
 export function Topbar({ onMobileMenuClick }: TopbarProps) {
+	const [commandPaletteOpen, setCommandPaletteOpen] = useState(false);
+	
 	return (
 		<div className="flex h-14 items-center justify-between border-b px-4 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
 			{/* Mobile menu button */}
@@ -32,17 +36,31 @@ export function Topbar({ onMobileMenuClick }: TopbarProps) {
 				<Menu className="h-5 w-5" />
 			</Button>
 
-			{/* Search */}
+			{/* Search / Command Palette */}
 			<div className="flex items-center max-w-xl flex-1">
-				<div className="relative w-full max-w-sm">
+				<div 
+					className="relative w-full max-w-sm cursor-pointer"
+					onClick={() => setCommandPaletteOpen(true)}
+				>
 					<Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
 					<Input
 						type="search"
-						placeholder="Search..."
-						className="pl-8 pr-4 bg-muted/50 border-none focus:bg-background focus:ring-2 focus:ring-ring transition-all"
+						placeholder="Search... (⌘K)"
+						className="pl-8 pr-12 bg-muted/50 border-none cursor-pointer"
+						readOnly
 					/>
+					<div className="absolute right-2 top-1.5 flex items-center gap-1">
+						<kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100">
+							<span className="text-xs">⌘</span>K
+						</kbd>
+					</div>
 				</div>
 			</div>
+
+			<CommandPalette 
+				open={commandPaletteOpen} 
+				onOpenChange={setCommandPaletteOpen} 
+			/>
 
 			{/* Right Section */}
 			<div className="flex items-center gap-4">

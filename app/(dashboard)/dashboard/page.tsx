@@ -14,6 +14,9 @@ import {
 	Calendar,
 	Clock
 } from "lucide-react";
+import { AreaChart } from "@/components/charts/area-chart";
+import { BarChart } from "@/components/charts/bar-chart";
+import { DonutChart } from "@/components/charts/donut-chart";
 
 const stats = [
 	{
@@ -66,6 +69,31 @@ const projectProgress = [
 	{ name: "Mobile App", progress: 45, status: "Development", color: "bg-orange-500" },
 	{ name: "API Integration", progress: 90, status: "Review", color: "bg-emerald-500" },
 	{ name: "Database Migration", progress: 30, status: "Planning", color: "bg-purple-500" },
+];
+
+const revenueData = [
+	{ label: "Jan", value: 12000 },
+	{ label: "Feb", value: 19000 },
+	{ label: "Mar", value: 3000 },
+	{ label: "Apr", value: 5000 },
+	{ label: "May", value: 28000 },
+	{ label: "Jun", value: 45000 },
+];
+
+const salesData = [
+	{ label: "Mon", value: 120 },
+	{ label: "Tue", value: 190 },
+	{ label: "Wed", value: 300 },
+	{ label: "Thu", value: 500 },
+	{ label: "Fri", value: 280 },
+	{ label: "Sat", value: 450 },
+	{ label: "Sun", value: 320 },
+];
+
+const userDemographics = [
+	{ label: "Desktop", value: 45, color: "#8b5cf6" },
+	{ label: "Mobile", value: 35, color: "#3b82f6" },
+	{ label: "Tablet", value: 20, color: "#10b981" },
 ];
 
 export default function DashboardPage() {
@@ -174,8 +202,9 @@ export default function DashboardPage() {
 				</Card>
 			</div>
 
-			{/* Chart Placeholders */}
-			<div className="grid gap-6 md:grid-cols-2">
+			{/* Interactive Charts */}
+			<div className="space-y-6">
+				{/* Revenue Area Chart */}
 				<Card>
 					<CardHeader>
 						<CardTitle className="flex items-center gap-2">
@@ -184,33 +213,46 @@ export default function DashboardPage() {
 						</CardTitle>
 					</CardHeader>
 					<CardContent>
-						<div className="h-64 flex items-center justify-center bg-gradient-to-br from-blue-50 to-purple-50 rounded-lg">
-							<div className="text-center">
-								<BarChart3 className="h-12 w-12 text-gray-400 mx-auto mb-2" />
-								<p className="text-sm text-muted-foreground">Chart component placeholder</p>
-								<p className="text-xs text-muted-foreground">Integrate with your preferred chart library</p>
-							</div>
-						</div>
+						<AreaChart 
+							data={revenueData} 
+							height={250} 
+							color="#8b5cf6" 
+							gradient={true} 
+						/>
 					</CardContent>
 				</Card>
 
-				<Card>
-					<CardHeader>
-						<CardTitle className="flex items-center gap-2">
-							<PieChart className="h-5 w-5" />
-							User Demographics
-						</CardTitle>
-					</CardHeader>
-					<CardContent>
-						<div className="h-64 flex items-center justify-center bg-gradient-to-br from-emerald-50 to-blue-50 rounded-lg">
-							<div className="text-center">
-								<PieChart className="h-12 w-12 text-gray-400 mx-auto mb-2" />
-								<p className="text-sm text-muted-foreground">Chart component placeholder</p>
-								<p className="text-xs text-muted-foreground">Integrate with your preferred chart library</p>
-							</div>
-						</div>
-					</CardContent>
-				</Card>
+				<div className="grid gap-6 md:grid-cols-2">
+					{/* Sales Bar Chart */}
+					<Card>
+						<CardHeader>
+							<CardTitle className="flex items-center gap-2">
+								<BarChart3 className="h-5 w-5" />
+								Weekly Sales
+							</CardTitle>
+						</CardHeader>
+						<CardContent>
+							<BarChart data={salesData} height={250} />
+						</CardContent>
+					</Card>
+
+					{/* User Demographics Donut Chart */}
+					<Card>
+						<CardHeader>
+							<CardTitle className="flex items-center gap-2">
+								<PieChart className="h-5 w-5" />
+								User Demographics
+							</CardTitle>
+						</CardHeader>
+						<CardContent className="flex justify-center">
+							<DonutChart 
+								data={userDemographics} 
+								size={250} 
+								innerRadius={70} 
+							/>
+						</CardContent>
+					</Card>
+				</div>
 			</div>
 		</div>
 	);
